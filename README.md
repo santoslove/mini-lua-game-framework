@@ -57,3 +57,31 @@ engine.sound(path)
 engine.loop(path)
 engine.stopLoop()
 ```
+
+## Example
+
+```lua
+engine.width = 400
+engine.height = 300
+engine.scale = 2
+
+player = {x = 0, y = 0}
+
+function engine.frame()
+    if engine.isDown('right') or engine.isDown('d') then
+        player.x = player.x + 1
+    end
+    
+    if engine.isDown('mouseLeft') then
+        player.y = player.y + 1
+    end
+    
+    engine.image('player.png', player.x, player.y)
+end
+
+function engine.down(input)
+    if input == 'space' then
+        player.x = 0
+    end
+end
+```
